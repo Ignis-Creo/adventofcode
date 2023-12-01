@@ -20,12 +20,10 @@ with open('day1data.txt', 'r') as f:
             index_hash[digit.start()] = line[digit.start()]
         for key in nums.keys():
             if key in line:
-                if line.find(key) != line.rfind(key):
                     index_hash[line.find(key)] = nums[key]
                     index_hash[line.rfind(key)] = nums[key]
-                else:
-                    index_hash[line.find(key)] = nums[key]
                     
         sorted_indexs = sorted(list(index_hash))
         decoded.append(int(index_hash[sorted_indexs[0]] + index_hash[sorted_indexs[-1]]))
+        
 print(sum(decoded))
